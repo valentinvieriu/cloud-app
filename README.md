@@ -1,4 +1,9 @@
 # Geofancy Cloud App
+
+[![Twitter: @Kidmar](https://img.shields.io/badge/contact-@Kidmar-blue.svg?style=flat)](https://twitter.com/Kidmar)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/Geofancy/cloud-app/blob/master/LICENSE.md)
+[![TravisCI](https://api.travis-ci.org/Geofancy/cloud-app.svg?branch=master)](https://travis-ci.org/Geofancy/cloud-app)
+[![Join the chat at https://gitter.im/Geofancy/cloud-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Geofancy/cloud-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Screenshot](screenshot.png)
 
 ## Preamble
