@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "prestart": "npm install",
-    "start": "FORCE_SSL=false MONGOLAB_URI=mongodb://localhost:27017/geofancy NODE_ENV=production SERVERNAME=dony3 HOSTNAME=my.geofancy.com ./node_modules/pm2/bin/pm2 start app.js -n geofancy",
-    "start.dev": "NODE_ENV=development HOSTNAME=0.0.0.0:3000 SERVERNAME=dev ./node_modules/pm2/bin/pm2 start app.js -n geofancy-dev",
-    "info": "./node_modules/pm2/bin/pm2 info geofancy",
-    "info.dev": "./node_modules/pm2/bin/pm2 info geofancy-dev",
-    "stop": "./node_modules/pm2/bin/pm2 stop geofancy",
-    "stop.dev": "./node_modules/pm2/bin/pm2 stop geofancy-dev"
+    "start": "FORCE_SSL=false MONGOLAB_URI=mongodb://localhost:27017/geofancy NODE_ENV=production SERVERNAME=dony3 HOSTNAME=my.locative.io ./node_modules/pm2/bin/pm2 start app.js -n locative",
+    "start.dev": "NODE_ENV=development HOSTNAME=0.0.0.0:3000 SERVERNAME=dev ./node_modules/pm2/bin/pm2 start app.js -n locative-dev",
+    "info": "./node_modules/pm2/bin/pm2 info locative",
+    "info.dev": "./node_modules/pm2/bin/pm2 info locative-dev",
+    "stop": "./node_modules/pm2/bin/pm2 stop locative",
+    "stop.dev": "./node_modules/pm2/bin/pm2 stop locative-dev"
   },
   "dependencies": {
     "async": "~0.2.9",

@@ -1,13 +1,6 @@
 extends layout_map
 
 block content
-    //- if welcome
-    //-     link(rel='stylesheet', href='/stylesheets/colorbox.css')
-    //-     script(type="text/javascript", src="/javascripts/jquery.colorbox.min.js")
-    //-     script(type="text/javascript")
-    //-         $(document).on('map_initialized', function() {
-    //-             $.colorbox({html:"<h1>Welcome to Geofancy</h1><p></p>", transition: 'none', opacity: 0.6});
-    //-         });
     div#map-canvas
         if !locals.session.passport.user
             script(type="text/javascript").

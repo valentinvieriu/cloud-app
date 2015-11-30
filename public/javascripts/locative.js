@@ -1,8 +1,8 @@
-function Geofancy() {
+function Locative() {
 
 }
 
-Geofancy.prototype.showPersonalStats = function () {
+Locative.prototype.showPersonalStats = function () {
   var gfs = $('#gfs');
   if (gfs.hasClass('hidden')) {
     gfs.removeClass('hidden');
@@ -10,5 +10,5 @@ Geofancy.prototype.showPersonalStats = function () {
 }
 
 $(document).ready(function () {
-  Geofancy = new Geofancy();
+  Locative = new Locative();
 });

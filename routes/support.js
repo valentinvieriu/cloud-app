@@ -1,5 +1,5 @@
 exports.index = function (req, res) {
-  res.render('support', {title: 'Geofancy'});
+  res.render('support', {title: req.gf.titleString});
 }
 
 exports.sendRequest = function (req, res) {
@@ -14,11 +14,11 @@ exports.sendRequest = function (req, res) {
   var mailOptions = {
     from: req.body.email,
     to: req.gf.config.mail_from,
-    subject: "Geofancy Support",
+    subject: "Locative Support",
     text: "User: " + req.body.username + "\n" + "E-Mail: " + req.body.email + "\nMessage:\n\n" + req.body.message
   }
   transport.sendMail(mailOptions, function (err, response) {
     transport.close();
   });
-  res.render('support', {title: 'Geofancy', result: 'success'});
+  res.render('support', {title: req.gf.titleString, result: 'success'});
 }

@@ -298,7 +298,7 @@ var index = function (req, res, next) {
                     }
                     var account = { avatar: crypto.createHash('md5').update(req.session.passport.user.email).digest("hex"), tfa: theUser.tfa.enabled===true };
                     var fencelogsSessions = {fencelogs: fencelogsResult, sessions: sessionsResult, clients: clientsResult, plugins:pluginsActive, tokens: tokensResult, pages: {max: c, current: currentPage}};
-                    res.render('account/index', {title: 'Geofancy', fencelogsSessions: fencelogsSessions, success: req.success, failure: req.failure, account: account});
+                    res.render('account/index', {title: 'Locative', fencelogsSessions: fencelogsSessions, success: req.success, failure: req.failure, account: account});
                 });
             });
         }

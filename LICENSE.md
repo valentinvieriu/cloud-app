@@ -1,4 +1,4 @@
-## The Geofancy License
+## The Locative License
 
 Copyright (c) 2013-today Marcus Kida
 
@@ -13,7 +13,7 @@ The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
 You are not eligible to distribute this Software under the name or appearance
-of Geofancy, you may release it under another name and appearance though.
+of Locative, you may release it under another name and appearance though.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

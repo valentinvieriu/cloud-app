@@ -1,3 +1,3 @@
 exports.index = function(req, res) {
-    res.render('geofences', {title: 'Geofancy'});
+    res.render('geofences', {title: req.gf.titleString});
 }

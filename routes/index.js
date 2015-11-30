@@ -5,7 +5,7 @@ var welcome = null;
 exports.index = function(req, res){
     welcome = (typeof req.query.welcome === 'string');
     if (!req.session.passport.user) {
-        return res.render('index_logged_out', {title: 'Geofancy', welcome: welcome});
+        return res.render('index_logged_out', {title: req.gf.titleString, welcome: welcome});
     }
     req.gf.User.findOne({_id: req.session.passport.user._id}, function(err, user) {
         if (err) {
@@ -43,7 +43,7 @@ function loadFencelogs (req, res) {
         for (var i = 0; i < fencelogs.length; i++) {
             markerCoords.push('['+fencelogs[i].location[0]+', '+fencelogs[i].location[1]+', \''+fencelogs[i]._id+'\']');
         }
-        res.render('index', {title: 'Geofancy' , fencelogs: markerCoords, ffLocations: ffLocations, yelpLocations: yelpLocations, welcome: welcome});
+        res.render('index', {title: req.gf.titleString , fencelogs: markerCoords, ffLocations: ffLocations, yelpLocations: yelpLocations, welcome: welcome});
     });
 }
 

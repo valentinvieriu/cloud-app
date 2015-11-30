@@ -3,7 +3,7 @@ var User = Promise.promisifyAll(require('../models/user'));
 var speakeasy = require('speakeasy');
 
 module.exports.index = function index (req, res) {
-  res.render('two-factor', {title: 'Geofancy'});
+  res.render('two-factor', {title: req.gf.titleString});
 }
 
 module.exports.unlock = function unlock (req, res) {

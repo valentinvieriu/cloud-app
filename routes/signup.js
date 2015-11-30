@@ -1,7 +1,7 @@
 var crypto = require('crypto');
 
 exports.index = function (req, res) {
-    res.render('signup', {title: 'Geofancy'});
+    res.render('signup', {title: req.gf.titleString});
 };
 
 exports.create = function (req, res) {
@@ -18,18 +18,18 @@ exports.create = function (req, res) {
 
                 new_user.save(function (err) {
                     if (err) {
-                        res.render('signup', {title: 'Geofancy', result: 'save_error'});
+                        res.render('signup', {title: req.gf.titleString, result: 'save_error'});
                     } else {
-                        res.render('signup', {title: 'Geofancy', result: 'success'});
+                        res.render('signup', {title: req.gf.titleString, result: 'success'});
                     }
                 });
 
             } else {
                 console.log('FAILURE -> User already existing!');
-                res.render('signup', {title: 'Geofancy', result: 'user_existing'});
+                res.render('signup', {title: req.gf.titleString, result: 'user_existing'});
             }
         } else {
-            res.render('signup', {title: 'Geofancy', result: 'server_error'});
+            res.render('signup', {title: req.gf.titleString, result: 'server_error'});
         }
     });
 };
