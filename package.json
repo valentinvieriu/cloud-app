@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prestart": "npm install",
-    "start": "FORCE_SSL=false MONGOLAB_URI=mongodb://localhost:27017/geofancy NODE_ENV=production SERVERNAME=dony3 HOSTNAME=my.locative.io ./node_modules/pm2/bin/pm2 start app.js -n locative",
+    "start": "PORT=3001 FORCE_SSL=false MONGOLAB_URI=mongodb://localhost:27017/geofancy NODE_ENV=production SERVERNAME=dony3 HOSTNAME=my.locative.io ./node_modules/pm2/bin/pm2 start app.js -n locative",
     "start.dev": "NODE_ENV=development HOSTNAME=0.0.0.0:3000 SERVERNAME=dev ./node_modules/pm2/bin/pm2 start app.js -n locative-dev",
     "info": "./node_modules/pm2/bin/pm2 info locative",
     "info.dev": "./node_modules/pm2/bin/pm2 info locative-dev",
