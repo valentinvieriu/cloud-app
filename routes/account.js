@@ -2,39 +2,6 @@ var crypto = require('crypto');
 var moment = require('moment');
 var dutil = require('../lib/date-util');
 
-var setPluginState = function (req, res, next) {
-    var allowedPlugins = ['firefly', 'yelp'];
-    req.gf.User.findOneAsync({_id: req.session.passport.user._id})
-    .then(function (user) {
-      if (!user) {
-        return index(req, res, next);
-      }
-      if (allowedPlugins.indexOf(req.params.pluginName) === -1) {
-        return index (req, res, next);;
-      }
-      if (req.params.pluginState === 'activate') {
-          console.log('activate');
-          if (user.plugins.indexOf(req.params.pluginName) === -1) {
-              user.plugins.push(req.params.pluginName);
-          }
-      } else if (req.params.pluginState === 'deactivate') {
-          var pos = user.plugins.indexOf(req.params.pluginName);
-          if (pos >= 0) {
-              user.plugins.splice(pos, 1);
-              req.session.passport.user.plugins.splice(pos, 1);
-              console.log('plugins: ' + req.session.passport.user.plugins);
-          }
-      }
-      return user.saveAsync();
-    })
-    .then(function () {
-      index(req, res, next);
-    })
-    .error(function (err) {
-      index(req, res, next);
-    });
-}
-
 var unlinkApp = function (req, res, next) {
     var tokensQuery = new Array();
     req.gf.Client.findOneAsync({_id: req.params.appId})
@@ -196,7 +163,6 @@ var index = function (req, res, next) {
     var tokensResult = new Array();
     var clientsResult = new Array();
     var currentPage = (req.query.page === undefined)?1:req.query.page;
-    var pluginsActive = {firefly: false, yelp: false};
     var theUser;
 
     req.gf.async.series([
@@ -254,22 +220,8 @@ var index = function (req, res, next) {
         },
         function(cb) {
             req.gf.User.findOne({_id: req.session.passport.user._id}, function(err, user) {
-                if (!err) {
-                    if (user) {
-                        theUser = user;
-                        if(user.plugins.indexOf('firefly') >= 0) { // Firefly active
-                            pluginsActive.firefly = true;
-                        }
-                        if(user.plugins.indexOf('yelp') >= 0) { // Yelp active
-                            pluginsActive.yelp = true;
-                        }
-                        cb();
-                    } else {
-                        cb();
-                    }
-                } else {
-                    cb();
-                }
+              theUser = user;
+              cb();
             });
         },
         function(cb) {
@@ -297,7 +249,7 @@ var index = function (req, res, next) {
                         }
                     }
                     var account = { avatar: crypto.createHash('md5').update(req.session.passport.user.email).digest("hex"), tfa: theUser.tfa.enabled===true };
-                    var fencelogsSessions = {fencelogs: fencelogsResult, sessions: sessionsResult, clients: clientsResult, plugins:pluginsActive, tokens: tokensResult, pages: {max: c, current: currentPage}};
+                    var fencelogsSessions = {fencelogs: fencelogsResult, sessions: sessionsResult, clients: clientsResult, tokens: tokensResult, pages: {max: c, current: currentPage}};
                     res.render('account/index', {title: 'Locative', fencelogsSessions: fencelogsSessions, success: req.success, failure: req.failure, account: account});
                 });
             });
@@ -311,7 +263,6 @@ module.exports = {
     sessionRemove: sessionRemove,
     fencelogRemove: fencelogRemove,
     unlinkApp: unlinkApp,
-    setPluginState: setPluginState,
     deleteAccount: deleteAccount,
     postDeleteAccount: postDeleteAccount
 };
