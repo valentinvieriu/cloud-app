@@ -165,6 +165,60 @@ block content
                 | event. Finally&nbsp;
                 b stay&nbsp;
                 | symbolizes the time in seconds which you've been visiting that location.
+                br
+                br
+                | To retrieve all of your stored Geofences, use the&nbsp;
+                code /geofences&nbsp;
+                | endpoint:&nbsp;
+                pre.prettyprint
+                    | GET https://my.geofancy.com/api/v1/geofences
+                | You'll then get an array of all Geofences.
+                pre.prettyprint
+                  | {
+                  |    error: false,
+                  |    geofences: [
+                  |       {
+                  |           _id: "565568ad0d29524267c62c40",
+                  |           userId: "563ef4fc43f7a83b869b23a9",
+                  |           locationId: "My Home",
+                  |           __v: 0,
+                  |           uuid: "333f8850-26b5-4abc-8bcd-2cfaff027ead",
+                  |           origin: "Web App",
+                  |           deleted: false,
+                  |           basicAuth: {
+                  |               enabled: "false",
+                  |               username: "",
+                  |               password: ""
+                  |           },
+                  |           triggerOnLeave: {
+                  |               enabled: "true",
+                  |               method: "0",
+                  |               url: ""
+                  |          },
+                  |           triggerOnArrival: {
+                  |               enabled: "true",
+                  |               method: "0",
+                  |               url: ""
+                  |           },
+                  |           location: {
+                  |               lon: "150.28234350000003",
+                  |               lat: "-32.8714765",
+                  |               radius: "50"
+                  |           },
+                  |           modified_at: "2015-11-25T07:52:13.565Z",
+                  |           created_at: "2015-11-25T07:52:13.565Z"
+                  |       }
+                  |    ]
+                  | }
+                br
+                | Additionally it's also possible to create a new cloud Geofence by using the&nbsp;
+                code /geofences&nbsp;
+                | endpoint:&nbsp;
+                pre.prettyprint
+                    | POST https://my.geofancy.com/api/v1/geofences
+                | The easiest way to create a cloud Geofence is to use the &nbsp; #[code /geofences] &nbsp; endpoint and #[code POST]&nbsp;
+                | a Geofences object (see above for an example on how this looks like).
+                br
                 h2(id="socketio") Socket.io API
                 h3(id="socketio-introduction") Introduction
                 p
