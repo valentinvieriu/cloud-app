@@ -15,14 +15,14 @@ exports.index = function(req, res) {
                     fencelog.created_at_time = dutil().to_moment(fencelog.created_at, req.session.timezone).format('HH:mm:ss');
                 }
                 console.log('Showing Fencelog: ' + fencelog._id);
-                res.render('location', {title: 'Geofancy', fencelog: fencelog});
+                res.render('location', {title: req.gf.titleString, fencelog: fencelog});
             } else {
                 console.log('NOT showing Fencelog.');
-                res.render('location', {title: 'Geofancy'});
+                res.render('location', {title: req.gf.titleString});
             }
         } else {
             console.log('Error when retrieving Fencelog');
-            res.render('location', {title: 'Geofancy'});
+            res.render('location', {title: req.gf.titleString});
         }
     });
 };

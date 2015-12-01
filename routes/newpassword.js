@@ -23,26 +23,26 @@ exports.index = function (req, res) {
                                 var mailOptions = {
                                     from: req.gf.config.mail_from,
                                     to: user.email,
-                                    subject: "New Geofancy Passwort",
-                                    text: "Howdy! Here goes your new Geofancy Password, keep it safe: " + new_password
+                                    subject: "New Locative Passwort",
+                                    text: "Howdy! Here goes your new Locative Password, keep it safe: " + new_password
                                 }
                                 transport.sendMail(mailOptions, function(err, response) {
                                   transport.close();
                                 });
-                                res.render('newpassword', {title: 'Geofancy', message: 'Check you inbox for your new Password', color: 'green'});
+                                res.render('newpassword', {title: req.gf.titleString, message: 'Check you inbox for your new Password', color: 'green'});
                             });
                         } else {
-                            res.render('newpassword', {title: 'Geofancy', message: 'An error occured', color: 'red'});
+                            res.render('newpassword', {title: req.gf.titleString, message: 'An error occured', color: 'red'});
                         }
                     } else {
-                        res.render('newpassword', {title: 'Geofancy', message: 'An error occured', color: 'red'});
+                        res.render('newpassword', {title: req.gf.titleString, message: 'An error occured', color: 'red'});
                     }
                 });
             } else {
-                res.render('newpassword', {title: 'Geofancy', message: 'An error occured', color: 'red'});
+                res.render('newpassword', {title: req.gf.titleString, message: 'An error occured', color: 'red'});
             }
         } else {
-            res.render('newpassword', {title: 'Geofancy', message: 'An error occured', color: 'red'});
+            res.render('newpassword', {title: req.gf.titleString, message: 'An error occured', color: 'red'});
         }
     });
 }

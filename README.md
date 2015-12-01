@@ -1,9 +1,9 @@
-# Geofancy Cloud App
+# Locative Cloud App
 
 [![Twitter: @Kidmar](https://img.shields.io/badge/contact-@Kidmar-blue.svg?style=flat)](https://twitter.com/Kidmar)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/Geofancy/cloud-app/blob/master/LICENSE.md)
-[![TravisCI](https://api.travis-ci.org/Geofancy/cloud-app.svg?branch=master)](https://travis-ci.org/Geofancy/cloud-app)
-[![Join the chat at https://gitter.im/Geofancy/cloud-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Geofancy/cloud-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/Locative/cloud-app/blob/master/LICENSE.md)
+[![TravisCI](https://api.travis-ci.org/Locative/cloud-app.svg?branch=master)](https://travis-ci.org/Locative/cloud-app)
+[![Join the chat at https://gitter.im/Locative/cloud-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Locative/cloud-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Screenshot](screenshot.png)
 
 ## Preamble
@@ -11,7 +11,7 @@
 I'm open sourcing this side-project of mine as I'm not enough time to actively care about it and due to the high number of requests I've got from the community, it feels about right to make further work to it possible.
 
 #### So you're going open source now, what about my data, is it also going open source?
-No, no, no. Of course not, you're data is still stored on the Geofancy servers and it will stay there until further notice. No third party will have access to your data.
+No, no, no. Of course not, you're data is still stored on the Locative servers and it will stay there until further notice. No third party will have access to your data.
 
 ## Technologies used
 
@@ -33,14 +33,14 @@ That's all folks.
 
 To date I'm going to manually deploy releases to production, I'm planning on migrating this project to Travis-CI so CI can do the deployments for me.
 
-#### So how do I find out what version is currently running on my.geofancy.com?
-Too easy! Just do any arbitrary HTTP request to any endpoint (e.g. GET https://my.geofancy.com) and look at the response headers: `X-Git-Revision: 7faa150`.
+#### So how do I find out what version is currently running on my.locative.io?
+Too easy! Just do any arbitrary HTTP request to any endpoint (e.g. GET https://my.locative.io) and look at the response headers: `X-LT-Git-Revision: 7faa150`.
 
 ## Issues
 
 Right now I'm still getting issues / feature requests etc. reported via UserVoice but I'm planning on moving to GitHub issues with this.
 
-## The Geofancy License
+## The Locative License
 
 Copyright (c) 2013-today Marcus Kida
 
@@ -55,7 +55,7 @@ The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
 You are not eligible to distribute this Software under the name or appearance
-of Geofancy, you may release it under another name and appearance though.
+of Locative, you may release it under another name and appearance though.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

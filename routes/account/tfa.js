@@ -4,9 +4,9 @@ var User = Promise.promisifyAll(require('../../models/user'));
 var qrcode = require('qrcode-js');
 
 var index = function (req, res) {
-  var tfa = speakeasy.generate_key({length: 20, google_auth_qr: true, name: 'Geofancy'});
-  var base64qr = qrcode.toDataURL('otpauth://totp/Geofancy?secret=' + tfa.base32, 4);
-  res.render('account/tfa', {title: 'Geofancy', tfa: {uri: base64qr, secret: tfa.base32}});
+  var tfa = speakeasy.generate_key({length: 20, google_auth_qr: true, name: req.gf.titleString});
+  var base64qr = qrcode.toDataURL('otpauth://totp/Locative?secret=' + tfa.base32, 4);
+  res.render('account/tfa', {title: req.gf.titleString, tfa: {uri: base64qr, secret: tfa.base32}});
 }
 
 var activate = function (req, res) {

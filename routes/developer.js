@@ -6,7 +6,7 @@ var utils = require('../lib/utils');
 var dutil = require('../lib/date-util');
 
 exports.createApp = function (req, res) {
-    res.render('developer/app', {title: 'Geofancy'});
+    res.render('developer/app', {title: req.gf.titleString});
 }
 
 exports.editApp = function (req, res) {
@@ -14,7 +14,7 @@ exports.editApp = function (req, res) {
         if (!err) {
             if (client) {
                 console.log('client: ' + JSON.stringify(client));
-                res.render('developer/app', {title: 'Geofancy', app: client});
+                res.render('developer/app', {title: req.gf.titleString, app: client});
             }
         }
     });
@@ -49,12 +49,12 @@ exports.saveApp = function (req, res) {
 exports.index = index;
 
 function closeColorbox (req, res) {
-    res.render('developer/app', {title: 'Geofancy', save: true});
+    res.render('developer/app', {title: req.gf.titleString, save: true});
 }
 
 function index (req, res) {
     if (!req.session.passport.user) {
-        return res.render('developer/developer', {title: 'Geofancy', clients: null});
+        return res.render('developer/developer', {title: req.gf.titleString, clients: null});
     }
     if (typeof req.query.remove_app === 'string') {
         Client.findOne({_id: req.query.remove_app, userId: req.session.passport.user._id}, function (err, client) {
@@ -98,6 +98,6 @@ function listApps(req, res) {
             client.created_at_formatted = formatted_date;
             sanitizedClients.push(client);
         };
-        res.render('developer/developer', {title: 'Geofancy', clients: sanitizedClients});
+        res.render('developer/developer', {title: req.gf.titleString, clients: sanitizedClients});
     });
 }

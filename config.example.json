@@ -8,11 +8,11 @@
     "mongodb_port": 27017,
     "mongodb_username": null,
     "mongodb_password": null,
-    "mongodb_dbname": "geofancy",
+    "mongodb_dbname": "locative",
 
-    "status_mail_recipient": "support@geofancy.com",
+    "status_mail_recipient": "support@locative.io",
 
-    "mail_from": "support@geofancy.com",
+    "mail_from": "support@locative.io",
     "mail_server": "smtp.server.com",
     "mail_user": "john@doe.org",
     "mail_password": "j0hnnyb0y",

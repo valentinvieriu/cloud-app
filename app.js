@@ -89,15 +89,16 @@ if(typeof process.env.BASIC_AUTH_USER !== 'undefined' && typeof process.env.BASI
 app.use(express.cookieParser('e0e66b926b6021aa79194b68162e015bffe38646'));
 app.use (express.session({secret: "keyboard cat", store: sessionStore, key: 'hello.sid'}));
 app.use(function(req, res, next) {
-	res.setHeader('X-Powered-By', 'Geofancy');
-  res.setHeader('X-Geofancy-Node', config.servername);
-  res.setHeader('X-Git-Revision', gitrev);
+	res.setHeader('X-Powered-By', 'Locative');
+  res.setHeader('X-LT-Node', config.servername);
+  res.setHeader('X-LT-Git-Revision', gitrev);
 	next();
 });
 app.use(responseTime());
 app.use(expressStats());
 app.use(function(req, res, next) {
     if(!req.gf) { req.gf = {}; }
+    if(!req.gf.titleString) { req.gf.titleString = "Locative"; }
     if(!req.gf.utils) { req.gf.utils = utils; }
     if(!req.gf.config) { req.gf.config = config; }
     if(!req.gf.async) { req.gf.async = async; }
