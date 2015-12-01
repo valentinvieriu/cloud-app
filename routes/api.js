@@ -53,7 +53,11 @@ exports.fencelogsAdd = function (req, res) {
                 req.gf.User.findOne({_id: session.userId}, function (err, user) {
                     if (!err) {
                         if (user) {
-                          var origin = ((typeof req.body.origin) == 'string') ? req.body.origin : 'Unknown';
+                          var origin = ((typeof req.body.origin) === 'string') ? req.body.origin : 'Unknown';
+                          var httpResponse = (
+                            (typeof req.body.httpResponse) === 'string' ?
+                            (req.body.httpResponse.length <= 1024) ? req.body.httpResponse : req.body.httpResponse.substring(0, 1024) : ''
+                          );
                           var newFencelog = new req.gf.Fencelog({
                               userId: user._id,
                               location: [req.body.longitude, req.body.latitude],
@@ -61,7 +65,7 @@ exports.fencelogsAdd = function (req, res) {
                               httpUrl: req.body.httpUrl,
                               httpMethod: req.body.httpMethod,
                               httpResponseCode : req.body.httpResponseCode,
-                              httpResponse: req.body.httpResponse,
+                              httpResponse: httpResponse,
                               eventType: req.body.eventType,
                               fenceType: req.body.fenceType,
                               origin: origin
