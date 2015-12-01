@@ -12,7 +12,6 @@ var UserSchema = new Schema({
     twitterId: {type: String, "default": ''},
     created_at: {type: Date, "default": Date.now},
     loggedin_at: {type: Date},
-    plugins: {type: Array, "default": []},
     permissions: {type: Array, "default": []},
     tfa: {type: Object, "default": {
         enabled: false,

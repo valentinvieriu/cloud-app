@@ -17,8 +17,8 @@ var dispatchFencelogMail = function (req, fencelogs, type, filename) {
     var mailOptions = {
         from: config.mail_from,
         to: req.session.passport.user.email,
-        subject: "Geofancy - Exported Fencelogs as " + type,
-        text: "Hey there " + req.session.passport.user.username + "!\nAttached you'll find your Fencelogs as " + type + "!\n\nCheers,\nyour Geofancy!",
+        subject: "Locative - Exported Fencelogs as " + type,
+        text: "Hey there " + req.session.passport.user.username + "!\nAttached you'll find your Fencelogs as " + type + "!\n\nCheers,\nyour Locative!",
         attachments: [
           {
             fileName: filename,

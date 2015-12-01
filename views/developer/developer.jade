@@ -43,7 +43,7 @@ block content
                         li
                             a(href="#mqtt-broker") MQTT Broker
             div.col-md-9
-                h1(id="apps") Geofancy Developer Center
+                h1(id="apps") Locative Developer Center
                 if locals.session.passport.user
                     div(class="apps-container" id="apps-list")
                         p Here you can manage your oAuth v2 Apps.
@@ -72,12 +72,12 @@ block content
                 h2(id="oauth2") oAuth v2 API Documentation
                 h3(id="oauth2-introduction") Introduction
                 p
-                    b Geofancy&nbsp;
+                    b Locative&nbsp;
                     | provides an oAuth v2 API for public use.
                     br
                     | The public endpoint can be found at the following REST url&nbsp;
                     pre.prettyprint
-                        | https://my.geofancy.com/api/v1
+                        | https://my.locative.io/api/v1
                     | Authentication is done via oAuth v2, to use this API you need a valid&nbsp;
                     code access_token
                     |  .
@@ -89,7 +89,7 @@ block content
                     br
                     | Obtaining an access token is quiet easy, just head over to the oAuth v2 authentication dialog using your client credentials&nbsp;
                     pre.prettyprint
-                        | https://my.geofancy.com/oauth2/authorize
+                        | https://my.locative.io/oauth2/authorize
                         | ?response_type=[grant type]
                         | &client_id=[your client id]
                         | &redirect_uri=[your redirect uri]
@@ -118,17 +118,17 @@ block content
                     code /user&nbsp;
                     |  endpoint e.g.:&nbsp;
                     pre.prettyprint
-                        | GET https://my.geofancy.com/api/v1/user
+                        | GET https://my.locative.io/api/v1/user
                     | To retrieve all of your Fencelogs, use the&nbsp;
                     code /fencelogs&nbsp;
                     | endpoint:&nbsp;
                     pre.prettyprint
-                        | GET https://my.geofancy.com/api/v1/fencelogs
+                        | GET https://my.locative.io/api/v1/fencelogs
                     | To get your Schedules (which are resulting from your Fencelogs) use&nbsp;
                     code /schedules&nbsp;
                     |  endpoint e.g.:&nbsp;
                     pre.prettyprint
-                        | GET https://my.geofancy.com/api/v1/schedules?from=
+                        | GET https://my.locative.io/api/v1/schedules?from=
                         i [Unix Timestamp]
                         | &to=
                         i [Unix Timestamp]
@@ -222,20 +222,20 @@ block content
                 h2(id="socketio") Socket.io API
                 h3(id="socketio-introduction") Introduction
                 p
-                    b Geofancy&nbsp;
+                    b Locative&nbsp;
                     | also provides a Socket.io API which may (currently) only be used by one client per account at a time. Which shall be fairly enough.
-                    | Using Geofancy's Socket.io API is fairly easy, just make sure to establish a connection using any compatible Socket.io Client (take a look at
+                    | Using Locative's Socket.io API is fairly easy, just make sure to establish a connection using any compatible Socket.io Client (take a look at
                     a(href="http://socket.io/") their official page
                     | ) to get in touch with it.
                     br
                     | We're also offering a very plain and simple example over at our
-                    a(href="https://github.com/Geofancy/geofancy-socket-sample" target="_blank") GitHub page
+                    a(href="https://github.com/Locative/locative-socket-sample" target="_blank") GitHub page
                     | .
                     br
                     | The endpoint you'll actually use to establish a connection to is
-                    pre.prettyprint https://my.geofancy.com:443
+                    pre.prettyprint https://my.locative.io:443
                     | A connection using the JavaScript Socket.io Library looks as follows:
-                    pre.prettyprint var socket = io.connect('https://my.geofancy.com:443');
+                    pre.prettyprint var socket = io.connect('https://my.locative.io:443');
                     | You may then authenticate by submitting your
                     b  credentials
                     | :
@@ -263,17 +263,17 @@ block content
                         |    }
                         | });
                     | Current the list event can be emitted manually by using the&nbsp;
-                    code https://my.geofancy.com/api/socket.io/fencelogs
+                    code https://my.locative.io/api/socket.io/fencelogs
                     | &nbsp;(authentication needed) endpoint which will just emit all your current Fencelogs for testing purpose.
                     br
                     | As soon as a Fencelogs is added the add event is emitted providing the Fecenlogs's data to you.
                 h2#mqtt-broker MQTT Broker
                 p
-                    b Geofancy&nbsp;
+                    b Locative&nbsp;
                     | has an integrated MQTT Broker which can be used to subscribe / published to custom topics.
                     br
                     | The broker operates on&nbsp;
-                    code my.geofancy.com:1883
+                    code my.locative.io:1883
                     | &nbsp;currently authentication is possible using either
                     code Plain
                     | &nbsp; or&nbsp;
@@ -282,7 +282,7 @@ block content
                     br
                 p
                     | To dispatch messages either use a Client, check out the Node.js Sample on&nbsp;
-                    a(href='https://github.com/Geofancy/geofancy-nodejs-mqtt-sample' target='_blank') GithHub
+                    a(href='https://github.com/Locative/locative-nodejs-mqtt-sample' target='_blank') GithHub
                     | &nbsp;or use your Home-Automation Devices.
                     br
                     | If you'd like to take a peek at the messages sent from / to your Topics, just got to&nbsp;
@@ -315,7 +315,7 @@ block content
                     small &nbsp; with a SHA1 hashed version of your actual password.
                     pre.prettyprint
                         | var mqtt = require('mqtt')
-                        | var client = mqtt.connect('mqtt://username:password@my.geofancy.com');
+                        | var client = mqtt.connect('mqtt://username:password@my.locative.io');
                         br
                         |client.subscribe('username/hello-world');
                         |client.publish('username/hello-world', 'hello alltogether!');

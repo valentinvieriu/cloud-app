@@ -2,7 +2,7 @@ var nodemailer = require('nodemailer');
 var crypto = require('crypto');
 
 exports.index = function(req, res) {
-    res.render('youforgot', {title: 'Geofancy'});
+    res.render('youforgot', {title: req.gf.titleString});
 }
 
 exports.request = function(req, res) {
@@ -27,22 +27,22 @@ exports.request = function(req, res) {
                         var mailOptions = {
                             from: req.gf.config.mail_from,
                             to: user.email,
-                            subject: "Lost Geofancy Passwort",
-                            text: "Howdy! Click the following Link to get your new Geofancy Password! " + req.root + "/newpassword/" + password_token
+                            subject: "Lost Locative Passwort",
+                            text: "Howdy! Click the following Link to get your new Locative Password! " + req.root + "/newpassword/" + password_token
                         }
                         transport.sendMail(mailOptions, function(err, response) {
                           transport.close();
                         });
-                        res.render('youforgot', {title: 'Geofancy', message:'Please check your Inbox for new credentials', color:'green'});
+                        res.render('youforgot', {title: req.gf.titleString, message:'Please check your Inbox for new credentials', color:'green'});
                     } else {
-                        res.render('youforgot', {title: 'Geofancy', message:'There was an error sending the Mail', color:'red'});
+                        res.render('youforgot', {title: req.gf.titleString, message:'There was an error sending the Mail', color:'red'});
                     }
                 });
             } else {
-                res.render('youforgot', {title: 'Geofancy', message:"We couldn't find that User", color:'red'});
+                res.render('youforgot', {title: req.gf.titleString, message:"We couldn't find that User", color:'red'});
             }
         } else {
-            res.render('youforgot', {title: 'Geofancy', message:'Server error', color:'red'});
+            res.render('youforgot', {title: req.gf.titleString, message:'Server error', color:'red'});
         }
     })
 }

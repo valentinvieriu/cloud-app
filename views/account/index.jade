@@ -87,29 +87,6 @@ block content
                                 td.td-action-right
                                     a(href="#" onclick="askToUnlinkApp('#{client.id}')") Unlink
 
-                div.panel.panel-primary
-                    div.panel-heading
-                        h3.panel-title Plugins
-                    table.table
-                        tr
-                            td
-                                img(src="/images/marker-firefly.png" class="plugin-icon")
-                                | Firefly
-                            td.td-action-right
-                                if fencelogsSessions.plugins.firefly
-                                    a(href="/account/plugin/firefly/deactivate") Deactivate
-                                else
-                                    a(href="/account/plugin/firefly/activate") Activate
-                        tr
-                            td
-                                img(src="/images/marker-yelp.png" class="plugin-icon")
-                                | Yelp
-                            td.td-action-right
-                                if fencelogsSessions.plugins.yelp
-                                    a(href="/account/plugin/yelp/deactivate") Deactivate
-                                else
-                                    a(href="/account/plugin/yelp/activate") Activate
-
             div.col-md-8#geofences-box
                 div.panel.panel-default
                     div.panel-heading
