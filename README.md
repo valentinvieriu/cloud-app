@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/Locative/cloud-app/blob/master/LICENSE.md)
 [![TravisCI](https://api.travis-ci.org/Locative/cloud-app.svg?branch=master)](https://travis-ci.org/Locative/cloud-app)
 [![Join the chat at https://gitter.im/Locative/cloud-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Locative/cloud-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![Screenshot](screenshot.png)
 
 ## Preamble
