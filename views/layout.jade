@@ -15,6 +15,17 @@ html
         script(src='/javascripts/jstz.js')
         script(src='/javascripts/geofancy.js')
         script(type="text/javascript", src="/javascripts/sweetalert.min.js")  
+        script(type='text/javascript', src='//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js')          
     body
         include header
         block content
+    script
+      | $(document).ready(function () {
+      |   setTimeout(function () {
+      |     if ($.cookie('legacyAlertShown')) {
+      |       return;
+      |     }
+      |     swal({html:true, title:'Geofancy is now Locative', text:'Geofancy has re-branded as Locative,  and it\s getting better! Please use <a href="https://my.locative.io">https://my.locative.io</a> from now on, thank you!'});
+      |     $.cookie('legacyAlertShown', true);
+      |   }, 500);
+      | });
